@@ -1,0 +1,470 @@
+/*CSS Reset*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   Modified
+*/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+a, cite, em, img, q, s, small, strong, sub, sup, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, div,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: 400;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, div, menu, nav, section {
+	display: block;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.clearfloat::before, .clearfloat::after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+/*****************************
+ * General
+ * **************************/
+body {
+	background-color: #ffffff;
+	margin: 0 auto;
+	width:  100%;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: top;
+}
+
+/*****************************
+ * Header
+ * **************************/
+ .site-header {
+	background: #254278;
+	text-align: center;
+	
+ }
+  
+ .header-title {
+	font-size: 1.5rem;
+	color: #fff;	
+	text-align: center;
+ }
+
+ /*****************************
+ * Menu
+ * **************************/
+.site-menu {
+	background-color: #ef8a3b;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	padding: 0 20px;
+	text-align: center;
+}
+
+.site-menu a{
+	color: #ffffff;
+	display: inline-block;
+	padding: 10px;
+	text-decoration: none;
+	
+}
+
+.site-menu a:hover {
+	color: #444444;
+	text-decoration: underline;
+}
+
+ /*****************************
+ * Main
+ * **************************/
+ #main {
+	margin: 0 auto;
+ }
+
+ /*****************************
+ * Content
+ * **************************/
+.cssrules h2 {
+	background: #4871b1	;
+	border-radius: 8px;
+	color: #ffffff;
+	padding: 6px 0;
+	text-align: center;
+}
+
+.wrap-css-properties {
+	padding: 10px;
+}
+
+.css-properties {
+	border: 1px solid #c7d4e8;	
+	border-radius: 8px;
+	color: #2a2a2a;
+	padding: 12px;
+}
+
+.css-properties h3 {
+	background-color: #c9c9c9;
+	border-radius: 8px;
+	padding: 6px;
+	text-align: center;
+}
+
+.css-property {
+	margin: 0 5px;
+	padding: 10px;
+}
+
+.css-property div {
+	margin-bottom: 3px;
+}
+
+.css-property input[type="text"] {
+	border: 1px solid #c9c9c9;
+	border-radius: 5px;
+	font-size: 16px;
+	padding: 4px;
+	width: 60px;
+}
+
+.css-property span {
+	display: inline-block;
+}
+
+.block-value {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.block-value p {
+	flex-grow: 1;
+}
+
+.cssoutput {
+	padding: 10px;
+}
+
+@keyframes anim {
+	from {width: 100px;}
+	50% {width: 50%;}
+	to {width: 100%;}
+}
+
+.out-container {
+	margin-bottom: 22px;
+	position: relative;
+}
+
+.out-css {
+	border: 1px solid #c7d4e8;
+	border-radius: 8px;
+}
+
+.out-animation {
+	padding: 15px;
+}
+
+@keyframe anim {
+	from:{width: 20%;}
+	50%:{width: 60%;}
+	to:{width: 100%;}
+}
+
+.out-animation {
+	height: 100px;
+}
+
+.out-animation div{
+	background-color: #758db3;
+	height: 100%;
+	width: 100%;
+}
+
+.out-background {
+	padding: 20px;
+	position: relative;
+	overflow: auto;
+}
+
+.out-background div {
+	border: 4px dashed #444444;
+	height: 250px;
+	padding: 15px;
+	width: 100%;
+}
+
+.out-border {
+	padding: 20px;
+}
+
+.out-border div {
+	height: 200px;
+	margin: auto;
+	width: 200px;
+}
+
+.out-border-radius {
+	padding: 20px;
+}
+
+.out-border-radius div{
+	background-color: #d8d8d8;
+	height: 300px;
+	width: 100%;
+}
+
+.out-box-shadow {
+	padding: 40px;
+}
+
+.out-box-shadow div {
+	background: #d8d8d8;
+	height: 300px;
+	width: 100%;
+}
+
+.out-flexbox {
+	height: 400px;
+	padding: 20px;
+}
+
+.out-flexbox .style-flexbox div {
+	background: #758db3;
+	padding: 5px 10px;
+}
+
+.out-font {
+	height: auto;
+	padding: 16px;
+}
+
+.out-text {
+	height: auto;
+	padding: 16px;
+}
+
+.out-transitions {
+	height: 200px;
+	padding: 10px;
+}
+
+.out-transitions div {
+	background: #ededed;
+	height: 180px;
+	padding: 8px 12px;
+	width: 100%;
+}
+
+.out-transitions .transition-background-color:hover {
+	background-color: red;
+}
+
+.out-transitions .transition-font-size:hover {
+	font-size: 1.5rem;
+}
+
+.out-transitions .transition-height:hover {
+	height: 50%
+}
+
+.out-transitions .transition-width:hover {
+	width: 50%;
+}
+
+.button-run-container {
+	margin-top: 10px;
+	text-align: right;
+}
+
+.run-animation {
+	background-color: #ef8a3b;
+	border: none;
+	border-radius: 10px;
+	color: #ffffff;
+	display: inline-block;
+	font-size: 1rem;
+	padding: 10px;
+	width: 80px;
+	transition: background 300ms ease-in;
+}
+
+.run-animation:hover {
+	background-color: #e77013;
+}
+
+.run-animation:active {
+	transform: scale(0.97, 0.98);
+}
+
+.run-animation:focus {
+	outline:none;
+}
+
+.css-code {
+	background: white;
+	border: 1px solid #c7d4e8;
+	border-radius: 8px;
+	height: 200px;
+	padding: 10px 6px;
+	resize: none;
+	width: 100%;
+}
+
+.css-code:focus {
+	outline: none;
+}
+
+.css-animation {
+	height: 200px;
+}
+
+.copy-button-container {
+	padding: 14px 0;
+	position: relative;
+	text-align: center;
+}
+
+.copy-button {
+	background: #efefef;
+	border: none;
+	border-radius: 10px;
+	font-size: 18px;
+	margin: 0 auto;
+	padding: 14px;
+	transition: background 0.2s ease-out;
+	width: 90px;
+}
+
+.copy-button:hover {
+	background: #dddddd;
+}
+
+.copy-button:active {
+	background: #cfcfcf;
+	transform: scale(0.97, 0.97);
+	transition: background 0.01s ease-out;
+}
+
+.copy-button:focus {
+	outline: none;
+}
+
+ /*****************************
+ * Footer
+ * **************************/
+.footer-page {
+	background-color: #afafaf;
+	text-align: center;
+}
+
+.info-block {
+	background: #444444;
+	color: #ffffff;
+	padding: 30px;
+}
+
+.info-block div {
+	font-size: 18px;
+	padding: 10px;
+}
+
+.author {
+	padding: 30px 20px;
+}
+
+ /*****************************
+ * Media Screen
+ * **************************/
+@media (min-width: 576px) {
+	
+}
+
+@media (min-width: 768px) {
+	.css-block {
+		display: flex;
+	}
+	
+	.wrap-css-properties {
+		width: 50%;
+	}
+	
+	.cssoutput {
+		width: 50%;
+	}
+}
+
+@media (min-width: 992px) {
+	.info-block {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.info-block div {
+		width: 50%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.info-block div {
+		padding: 10px 40px;
+		width: 40%;
+	}
+}
+
+@media (min-width: 1600px) {
+	#main {
+		width: 1600px;
+	}
+	
+	.wrap-css-properties {
+		width: 40%;
+	}
+	
+	.cssoutput {
+		width: 60%;
+	}
+}

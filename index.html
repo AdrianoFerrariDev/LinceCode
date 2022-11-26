@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="images/icon.ico">
+        <link rel="profile" href="http://gmpg.org/xfn/11" />
+        <title>Lince Code | A CSS Generator</title>
+		<meta name="description" content="Learn CSS or speed up your work by entering field values and getting the result on the screen." />
+        <meta name='robots' content='index,follow' />
+        <link rel="stylesheet" media="screen" href="css/style.css" />
+    </head>
+    <body>
+				<header class="site-header">
+			<div class="header-image"><img src="images/logo.png" /></div>
+			<div style="display: none;">
+				<h1 class="header-title">CSS3 Generator</h1>
+			</div>
+		</header>
+				<div id="site-content">
+			<div class="site-menu">
+									<a href="#animation">Animation</a>
+									<a href="#background">Background</a>
+									<a href="#border">Border</a>
+									<a href="#border-radius">Border Radius</a>
+									<a href="#box-shadow">Box Shadow</a>
+									<a href="#font">Font</a>
+									<a href="#text">Text</a>
+									<a href="#transition">Transition</a>
+							</div>
+			<div id="main">
+				<div id="principal">
+									<section id="animation" class="cssrules">
+						<h2>Animation</h2>
+						<div class="css-block">
+														<div class="wrap-css-properties">
+								<div class="css-properties">
+									<div class="css-property">
+										<h4>Animation duration</h4>
+										<p><input id="anim-duration" type="text" /> ms</p>
+									</div>
+									<div class="css-property">
+										<h4>Animation timing function</h4>
+										<span><input id="atflinear" type="radio" name="anim-t-func" value="linear" /> <label for="atflinear">Linear</label></span>
+										<span><input id="atfease" type="radio" name="anim-t-func" value="ease" /> <label for="atfease">Ease</label></span>
+										<span><input id="atfeasein" type="radio" name="anim-t-func" value="ease-in" /> <label for="atfeasein">Ease in</label></span>
+										<span><input id="atfeaseout" type="radio" name="anim-t-func" value="ease-out" /> <label for="atfeaseout">Ease out</label></span>
+										<span><input id="atfeaseinout" type="radio" name="anim-t-func" value="ease-in-out" /> <label for="atfeaseinout">Ease in out</label></span>
+									</div>
+									<div class="css-property">
+										<h4>Animation iteration count</h4>
+										<span><input id="aicnoit" type="radio" name="anim-ite-count" value="no" /><label for="aicnoit">No iteration</label></span>
+										<span><input id="aicone" type="radio" name="anim-ite-count" value="1" /><label for="aicone">1</label></span>
+										<span><input id="aictwo" type="radio" name="anim-ite-count" value="2" /><label for="aictwo">2</label></span>
+										<span><input id="aicthree" type="radio" name="anim-ite-count" value="3" /><label for="aicthree">3</label></span>
+										<span><input id="aicfour" type="radio" name="anim-ite-count" value="4" /><label for="aicfour">4</label></span>
+										<span><input id="aicfive" type="radio" name="anim-ite-count" value="5" /><label for="aicfive">5</label></span>
+										<span><input id="aicinfinite" type="radio" name="anim-ite-count" value="infinite" /><label for="aicinfinite">Infinite</label></span>
+									</div>
+									<div class="css-property">
+										<div>Animation direction</div>
+										<span><input id="dirnormal" type="radio" name="anim-dir" value="normal" /><label for="dirnormal">Normal</label></span>
+										<span><input id="diralt" type="radio" name="anim-dir" value="alternate" /><label for="diralt">Alternate</label></span>
+										<span><input id="dirreverse" type="radio" name="anim-dir" value="reverse" /><label for="dirreverse">Reverse</label></span>
+										<span><input id="diraltrev" type="radio" name="anim-dir" value="alternate-reverse" /><label for="diraltrev">Alternate reverse</label></span>
+									</div>
+									<div class="css-property">
+										<div>Animation delay</div>
+										<input id="anim-delay" type="text" /> ms
+									</div>
+								</div><!-- .css-properties -->
+							</div><!-- .wrap-css-properties -->
+							<div class="cssoutput">
+								<div class="out-container">
+									<div class="out-css out-animation">
+										<div class="style-animation"></div>
+									</div>
+									<div class="button-run-container"><button class="run-animation">Run</button></div>
+								</div>
+								<textarea class="css-code css-animation" readonly="readonly"></textarea>
+								<div class="copy-button-container">
+									<button class="copy-button">Copy</button>
+								</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #animation-->
+					
+									<section id="background" class="cssrules">
+						<h2>Background</h2>
+						<div class="css-block">
+														<div class="wrap-css-properties">
+								<div class="css-properties">
+									<div class="css-property">
+										<h4>Background Color</h4>
+										<input id="actv-bg-color" type="checkbox" checked />
+										<input id="bg-color" type="color" value="#989521" />
+									</div>
+									<div class="css-property">
+										<h4>Background Image</h4>
+										<span><input id="backnoimg" type="radio" name="bcg-img" value="noimage" /><label for="backnoimg">No Image</label></span>
+										<span><input id="backimg1" type="radio" name="bcg-img" value="img1.png" /><label for="backimg1">Image 1</label></span>
+										<span><input id="backimg2" type="radio" name="bcg-img" value="img2.jpg" /><label for="backimg2">Image 2</label></span>
+									</div>
+									<div class="css-property">
+										<h4>Background Repeat</h4>
+										<span><input id="backrepeat" type="radio" name="bcg-repeat" value="repeat" /><label for="backrepeat">Repeat</label></span>
+										<span><input id="backrepeatx" type="radio" name="bcg-repeat" value="repeat-x" /><label for="backrepeatx">Repeat x</label></span>
+										<span><input id="backrepeaty" type="radio" name="bcg-repeat" value="repeat-y" /><label for="backrepeaty">Repeat y</label></span>
+										<span><input id="backnorepeat" type="radio" name="bcg-repeat" value="no-repeat" /><label for="backnorepeat">No Repeat</label></span>
+										<span><input id="backspace" type="radio" name="bcg-repeat" value="space" /><label for="backspace">Space</label></span>
+										<span><input id="backround" type="radio" name="bcg-repeat" value="round" /><label for="backround">Round</label></span>
+									</div>
+									<div class="css-property">
+										<h4>Background Attachment</h4>
+										<span><input id="backscroll" type="radio" name="bcg-attachment" value="scroll" /><label for="backscroll">Scroll</label></span>
+										<span><input id="backfixed" type="radio" name="bcg-attachment" value="fixed" /><label for="backfixed">Fixed</label></span>
+										<span><input id="backlocal" type="radio" name="bcg-attachment" value="local" /><label for="backlocal">Local</label></span>
+									</div>
+									<div class="css-property">
+										<h4>Background Position</h4>
+										<select id="background-position">
+											<option>No Value</option>
+											<option>Top Left</option>
+											<option>Top Center</option>
+											<option>Top Right</option>
+											<option>Center</option>
+											<option>Center Left</option>
+											<option>Center Right</option>
+											<option>Bottom Left</option>
+											<option>Bottom Center</option>
+											<option>Bottom Right</option>
+										</select>
+									</div>
+									<div class="css-property">
+										<h4>Background Clip</h4>
+										<span><input id="backborderbox" type="radio" name="bcg-clip" value="border-box" /> <label for="backborderbox">Border box</label></span>
+										<span><input id="backpadbox" type="radio" name="bcg-clip" value="padding-box" /> <label for="backpadbox">Padding box</label></span>
+										<span><input id="backcontbox" type="radio" name="bcg-clip" value="content-box" /> <label for="backcontbox">Content box</label></span>
+									</div>
+								</div><!-- .css-properties -->
+							</div><!-- .wrap-css-properties -->
+							<div class="cssoutput">
+								<div class="out-container">
+									<div class="out-css out-background">
+										<div class="style-background"></div>
+									</div>
+								</div>
+								<textarea class="css-code css-background" readonly="readonly"></textarea>
+								<div class="copy-button-container">
+									<button class="copy-button">Copy</button>
+								</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #background-->
+					
+									<section id="border" class="cssrules">
+						<h2>Border</h2>
+						<div class="css-block">
+														<div class="wrap-css-properties">
+								<div class="css-properties">
+									<div class="css-property">
+										<h4>Border Width</h4>
+										<p><input id="border-width-val" type="text"/> px</p>
+									</div>
+									<div class="css-property">
+										<h4>Border Color</h4>
+										<input id="bdcolor" type="color" value="#000000" />
+									</div>
+									<div class="css-property">
+										<h4>Border Style</h4>
+										<span><input id="none" type="radio" name="style" value="none" /> <label for="none">None</label></span>
+										<span><input id="solid" type="radio" name="style" value="solid" checked /> <label for="solid">Solid</label></span>
+										<span><input id="dashed" type="radio" name="style" value="dashed" /> <label for="dashed">Dashed</label></span>
+										<span><input id="dotted" type="radio" name="style" value="dotted" /> <label for="dotted">Dotted</label></span>
+										<span><input id="double" type="radio" name="style" value="double" /> <label for="double">Double</label></span>
+										<span><input id="groove" type="radio" name="style" value="groove" /> <label for="groove">Groove</label></span>
+										<span><input id="ridge" type="radio" name="style" value="ridge" /> <label for="ridge">Ridge</label></span>
+										<span><input id="inset" type="radio" name="style" value="inset" /> <label for="inset">Inset</label></span>
+										<span><input id="outset" type="radio" name="style" value="outset" /> <label for="outset">Outset</label></span>
+									</div>
+								</div><!-- .css-properties -->
+							</div><!-- .wrap-css-properties -->
+							<div class="cssoutput">
+								<div class="out-container">
+									<div class="out-css out-border">
+										<div class="style-border"></div>
+									</div>
+								</div>
+								<textarea class="css-code css-border" readonly="readonly"></textarea>
+								<div class="copy-button-container">
+									<button class="copy-button">Copy</button>
+								</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #border-->
+					
+									<section id="border-radius" class="cssrules">
+						<h2>Border Radius</h2>
+						<div class="css-block">
+														<div class="wrap-css-properties">
+								<div class="css-properties">
+									<div class="css-property">
+											<div>Border Radius - Corner Rounded</div>
+
+											<div>Top Left</div>
+											<div><input id="crtl" type="text" /></div>
+											<div><input type="checkbox" name="rnd-corner-same" checked /> All same</div>
+
+									</div>
+									<div class="css-property">
+											<div>Top Right</div>
+											<div><input id="crtr" type="text" /></div>
+									</div>
+									<div class="css-property">
+											<div>Bottom Right</div>
+											<div><input id="crbr" type="text" /></div>
+									</div>
+									<div class="css-property">
+											<div>Bottom Left</div>
+											<div><input id="crbl" type="text" /></div>
+									</div>
+									<div class="css-property">
+											<div>Border Radius - Corner Elipse</div>
+											<div>Top Left</div>
+											<div><input id="cetl" type="text" /></div>
+											<div><input type="checkbox" name="elip-corner-same" checked /> All same</div>
+									</div>
+									<div class="css-property">
+											<div>Top Left</div>
+											<div><input id="cetr" type="text" /></div>
+									</div>
+									<div class="css-property">
+											<div>Bottom Right</div>
+											<div><input id="cebr" type="text" /></div>
+									</div>
+									<div class="css-property">
+											<div>Bottom Left</div>
+											<div><input id="cebl" type="text" /></div>
+									</div>
+								</div><!-- .css-properties -->
+							</div><!-- .wrap-css-properties -->
+							<div class="cssoutput">
+								<div class="out-container">
+									<div class="out-css out-border-radius">
+										<div class="style-border-radius"></div>
+									</div>
+								</div>
+								<textarea class="css-code css-border-radius" readonly="readonly"></textarea>
+								<div class="copy-button-container">
+									<button class="copy-button">Copy</button>
+								</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #border-radius-->
+					
+									<section id="box-shadow" class="cssrules">
+						<h2>Box Shadow</h2>
+						<div class="css-block">
+														<div class="wrap-css-properties">
+								<div class="css-properties">
+									<div class="css-property">
+										<div>inset</div>
+										<div><input type="checkbox" name="bscheck" value="inset" /></div>
+									</div>
+									<div class="css-property">
+										<div>Horizontal</div>
+										<div><input id="bshor" type="text" /></div>
+									</div>
+									<div class="css-property">
+										<div>Vertical</div>
+										<div><input id="bsver" type="text" /></div>
+									</div>
+									<div class="css-property">
+										<div>Blur</div>
+										<div><input id="bsblur" type="text" /></div>
+									</div>
+									<div class="css-property">
+										<div>Proportion</div>
+										<div><input id="bsprop" type="text" /></div>
+									</div>
+									<div class="css-property">
+										<div>Shadow Color</div>
+										<div><input id="bscolor" type="color" /></div>
+									</div>
+									<div class="css-property">
+										<div>Background Color</div>
+										<div><input id="bsbackcolor" type="color" value="#e4e4e4" /></div>
+									</div>
+								</div><!-- .css-properties -->
+							</div><!-- .wrap-css-properties -->
+							<div class="cssoutput">
+								<div class="out-container">
+									<div class="out-css out-box-shadow">
+										<div class="style-box-shadow"></div>
+									</div>
+								</div>
+								<textarea class="css-code css-box-shadow" readonly="readonly"></textarea>
+								<div class="copy-button-container">
+									<button class="copy-button">Copy</button>
+								</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #box-shadow-->
+					
+									<section id="font" class="cssrules">
+						<h2>Font</h2>
+						<div class="css-block">
+														<div class="wrap-css-properties">
+								<div class="css-properties">
+									<div class="css-property">
+										<div>Font style</div>
+										<span><input id="fsnormal" type="radio" name="font-style" value="normal" /><label for="fsnormal">Normal</label></span>
+										<span><input id="fsitalic" type="radio" name="font-style" value="italic" /><label for="fsitalic">Italic</label></span>
+										<span><input id="fsoblique" type="radio" name="font-style" value="oblique" /><label for="fsoblique">Oblique</label></span>
+									</div>
+									<div class="css-property">
+										<div>Font size</div>
+										<span><input id="font-size" type="text" /> px</span>
+									</div>
+									<div class="css-property">
+										<div>Font weight</div>
+										<span><input id ="fwone" type="radio" name="font-weight" value="100" /><label for="fwone">100</label></span>
+										<span><input id ="fwtwo" type="radio" name="font-weight" value="200" /><label for="fwtwo">200</label></span>
+										<span><input id ="fwthree" type="radio" name="font-weight" value="300" /><label for="fwthree">300</label></span>
+										<span><input id ="fwfour" type="radio" name="font-weight" value="400" /><label for="fwfour">400</label></span>
+										<span><input id ="fwfive" type="radio" name="font-weight" value="500" /><label for="fwfive">500</label></span>
+										<span><input id ="fwsix" type="radio" name="font-weight" value="600" /><label for="fwsix">600</label></span>
+										<span><input id ="fwseven" type="radio" name="font-weight" value="700" /><label for="fwseven">700</label></span>
+										<span><input id ="fweight" type="radio" name="font-weight" value="800" /><label for="fweight">800</label></span>
+										<span><input id ="fwnine" type="radio" name="font-weight" value="900" /><label for="fwnine">900</label></span>
+									</div>
+								</div><!-- .css-properties -->
+							</div><!-- .wrap-css-properties -->
+							<div class="cssoutput">
+								<div class="out-container">
+									<div class="out-css out-font">
+										<p class="style-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt imperdiet urna ut malesuada. Vivamus faucibus nisi sapien, a pharetra arcu volutpat a. Cras ante nisl, fringilla sit amet fermentum quis, dictum quis nisl. Sed tempor malesuada quam, sit amet eleifend ipsum ultricies eu. Curabitur vitae nulla fermentum, fermentum tellus vitae, venenatis metus. Duis scelerisque felis justo, non aliquam sem tempus eget.</p>
+									</div>
+								</div>
+								<textarea class="css-code css-font" readonly="readonly"></textarea>
+								<div class="copy-button-container">
+									<button class="copy-button">Copy</button>
+								</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #font-->
+					
+									<section id="text" class="cssrules">
+						<h2>Text</h2>
+						<div class="css-block">
+														<div class="wrap-css-properties">
+								<div class="css-properties">
+									<div class="css-property">
+										<div>Letter spacing</div>
+										<span><input id="txt-letter-spacing" type="text" /> px</span>
+									</div>
+									<div class="css-property">
+										<div>Word spacing</div>
+										<span><input id="txt-word-spacing" type="text" /> px</span>
+									</div>
+									<div class="css-property">
+										<div>Line height</div>
+										<span><input id="txt-line-height" type="text" /> px</span>
+									</div>
+									<div class="css-property">
+										<div>Text align</div>
+										<span><input id="taleft" type="radio" name="text-align" value="left" /> <label for="taleft">Left</label></span>
+										<span><input id="taright" type="radio" name="text-align" value="right" /> <label for="taright">Right</label></span>
+										<span><input id="tacenter" type="radio" name="text-align" value="center" /> <label for="tacenter">Center</label></span>
+										<span><input id="tajustify" type="radio" name="text-align" value="justify" /> <label for="tajustify">Justify</label></span>
+									</div>
+									<div class="css-property">
+										<div>Text indent</div>
+										<span><input id="txt-indent" type="text" /> px</span>
+									</div>
+									
+									<div class="css-property">
+										<h4>Text decoration</h4>
+										<span><input id="tdnone" type="radio" name="text-decoration" value="none" /><label for="tdnone">None</label></span>
+										<span><input id="tdunderline" type="radio" name="text-decoration" value="underline" /><label for="tdunderline">Underline</label></span>
+										<span><input id="tdoverline" type="radio" name="text-decoration" value="overline" /><label for="tdoverline">Overline</label></span>
+										<span><input id="tdlinethrough" type="radio" name="text-decoration" value="line-through" /><label for="tdlinethrough">Line through</label></span>
+									</div>
+									<div class="css-property">
+										<h4>Text transform</h4>
+										<span><input id="ttnone" type="radio" name="text-transform" value="none" /><label for="ttnone">None</label></span>
+										<span><input id="ttcapitalize" type="radio" name="text-transform" value="capitalize" /><label for="ttcapitalize">Capitalize</label></span>
+										<span><input id="ttupper" type="radio" name="text-transform" value="uppercase" /><label for="ttupper">Uppercase</label></span>
+										<span><input id="ttlower" type="radio" name="text-transform" value="lowercase" /><label for="ttlower">Lowercase</label></span>
+									</div>
+								</div><!-- .css-properties -->
+							</div><!-- .wrap-css-properties -->
+							<div class="cssoutput">
+								<div class="out-container">
+									<div class="out-css out-text">
+										<p class="style-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt imperdiet urna ut malesuada. Vivamus faucibus nisi sapien, a pharetra arcu volutpat a. Cras ante nisl, fringilla sit amet fermentum quis, dictum quis nisl. Sed tempor malesuada quam, sit amet eleifend ipsum ultricies eu. Curabitur vitae nulla fermentum, fermentum tellus vitae, venenatis metus. Duis scelerisque felis justo, non aliquam sem tempus eget.</p>
+									</div>
+								</div>
+								<textarea class="css-code css-text" readonly="readonly"></textarea>
+								<div class="copy-button-container">
+									<button class="copy-button">Copy</button>
+								</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #text-->
+					
+									<section id="transition" class="cssrules">
+						<h2>Transition</h2>
+						<div class="css-block">
+														<div class="wrap-css-properties">
+								<div class="css-properties">
+									<div class="css-property">
+										<div>Property</div>
+										<select id="transition-property">
+											<option value="background-color">Background Color</option>
+											<option value="font-size">Font Size</option>
+											<option value="height">Height</option>
+											<option value="width">Width</option>
+										</select>
+									</div>
+									<div class="css-property">
+										<h4>Duration</h4>
+										<input id="transition-duration" type="text" /> ms
+									</div>
+									<div class="css-property">
+										<div>Timing function</div>
+										<input id="ttflinear" type="radio" name="transition-timing-function" value="linear" /> <label for="ttflinear">linear</label>
+										<input id="ttfease" type="radio" name="transition-timing-function" value="ease" /> <label for="ttfease">Ease</label>
+										<input id="ttfeasein" type="radio" name="transition-timing-function" value="ease-in" /> <label for="ttfeasein">Ease in</label>
+										<input id="ttfeaseout" type="radio" name="transition-timing-function" value="ease-out" /> <label for="ttfeaseout">Ease out</label>
+										<input id="ttfeaseinout" type="radio" name="transition-timing-function" value="ease-in-out" /> <label for="ttfeaseinout">Ease in out</label>
+									</div>
+									<div class="css-property">
+										<div>Delay</div>
+										<input id="transition-delay" type="text" /> ms
+									</div>
+								</div><!-- .css-properties -->
+							</div><!-- .wrap-css-properties -->
+							<div class="cssoutput">
+									<div class="out-container">
+										<div class="out-css out-transitions">
+											<div class="style-border">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt imperdiet urna ut malesuada. Vivamus faucibus nisi sapien, a pharetra arcu volutpat.</div>
+										</div>
+									</div>
+									<textarea class="css-code css-transitions" readonly="readonly"></textarea>
+									<div class="copy-button-container">
+										<button class="copy-button">Copy</button>
+									</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #transition-->
+					
+									
+				</div><!-- #principal -->
+			</div>
+		</div><!-- #site-content -->
+				<footer class="footer-page">
+			<div class="info-block">
+				<div class="about-site">This site is designed to help both novice and experienced developers, with the purpose of providing help in learning and speeding up project development.</div>
+			</div>
+			<div class="author">&copy; 2022 - by Adriano Ferrari</div>
+		</footer>
+		<script type="text/javascript" src="js/jquery-3.6.1.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
+	</body>
+</html>
