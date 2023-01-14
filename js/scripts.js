@@ -1,10 +1,3 @@
-jQuery(document).ready(function() {
-	$(".range-default").html(function() {
-		var rangeValue = $(this).val();
-		$(this).parent().siblings('.prop-num-val').children('span').html(rangeValue);
-	});
-});
-
 var valRunAnimation = '';
 $(function(){
 	$("#animation").on("input", function() {
