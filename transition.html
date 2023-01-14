@@ -48,63 +48,54 @@
 		<div id="site-content">
 			<div id="main">
 				<div id="principal">
-																		<div class="home-content">
-																<div class="property-name">
-										<div class="inner-prop">
-											<a href="animation.html"><span>Animation</span></a>
-										</div>
+										<section id="transition" class="cssrules">
+						<h2>Transition</h2>
+						<div class="css-block">
+							<div class="css-properties">
+															<div class="wrap-block-prop">
+								<div class="css-property select-option">
+									<div class="block-property-name">Property</div>									<div class="wrap-select">
+										<select id="transition-property">
+											<option value="background-color">Background Color</option>
+											<option value="font-size">Font Size</option>
+											<option value="height">Height</option>
+											<option value="width">Width</option>
+										</select>
 									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="background.html"><span>Background</span></a>
-										</div>
+								</div>
+								<div class="css-property transition-duration">
+									<div class="block-property-name">Duration</div>									<div><input id="transition-duration" class="range-default" type="range" min="0" max="5" step="0.1" value="0" /></div>
+									<div class="prop-num-val"><span>0</span>s</div>
+								</div>
+								<div class="css-property">
+									<div class="block-property-name">Timing Function</div>									<div class="radio-group">
+										<div><input id="ttflinear" type="radio" name="transition-timing-function" value="linear" /> <label for="ttflinear">Linear</label></div>
+										<div><input id="ttfease" type="radio" name="transition-timing-function" value="ease" /> <label for="ttfease">Ease</label></div>
+										<div><input id="ttfeasein" type="radio" name="transition-timing-function" value="ease-in" /> <label for="ttfeasein">Ease in</label></div>
+										<div><input id="ttfeaseout" type="radio" name="transition-timing-function" value="ease-out" /> <label for="ttfeaseout">Ease out</label></div>
+										<div><input id="ttfeaseinout" type="radio" name="transition-timing-function" value="ease-in-out" /> <label for="ttfeaseinout">Ease in out</label></div>
 									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="border.html"><span>Border</span></a>
-										</div>
+								</div>
+								<div class="css-property transition-delay">
+									<div class="block-property-name">Delay</div>									<div><input id="transition-delay" class="range-default" type="range" min="0" max="5" step="0.1" value="0" /></div>
+									<div class="prop-num-val"><span>0</span>s</div>
+								</div>
+							</div><!-- .wrap-block-prop -->
+							</div>
+							<div class="cssoutput">
+								<div class="out-container">
+									<div class="out-css out-transition">
+																					<div class="style-transition">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt imperdiet urna ut malesuada. Vivamus faucibus nisi sapien, a pharetra arcu volutpat.</div>
 									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="border-radius.html"><span>Border Radius</span></a>
-										</div>
-									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="box-shadow.html"><span>Box Shadow</span></a>
-										</div>
-									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="font.html"><span>Font</span></a>
-										</div>
-									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="outline.html"><span>Outline</span></a>
-										</div>
-									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="text.html"><span>Text</span></a>
-										</div>
-									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="text-shadow.html"><span>Text Shadow</span></a>
-										</div>
-									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="transform2d.html"><span>Transform 2d</span></a>
-										</div>
-									</div>
-																	<div class="property-name">
-										<div class="inner-prop">
-											<a href="transition.html"><span>Transition</span></a>
-										</div>
-									</div>
-															</div>
+																	</div>
+								<textarea class="css-code css-transition" readonly="readonly"></textarea>
+								<div class="copy-button-container">
+									<button class="copy-button">Copy</button>
+									<span class="copy-msg">Copied</span>
+								</div>
+							</div><!-- .cssoutput -->
+						</div><!-- .css-block -->
+					</section><!-- #transition-->
 									</div><!-- #principal -->
 			</div>
 		</div><!-- #site-content -->
