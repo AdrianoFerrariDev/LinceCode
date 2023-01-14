@@ -1,41 +1,50 @@
+jQuery(document).ready(function() {
+	$(".range-default").html(function() {
+		var rangeValue = $(this).val();
+		$(this).parent().siblings('.prop-num-val').children('span').html(rangeValue);
+	});
+});
+
 var valRunAnimation = '';
 $(function(){
-	$("#animation").on("change keyup", function() {
+	$("#animation").on("input", function() {
 		var animDuration = $('#anim-duration').val(),
 		animTFunc = $('input[name="anim-t-func"]:checked').val(),
 		animIteCount = $('input[name="anim-ite-count"]:checked').val(),
 		animDirection = $('input[name="anim-dir"]:checked').val(),
 		animDelay = $('#anim-delay').val(),
 		valAnimation = [],
+		inlineAnimation = '',
 		decAnimation ='',
 		valueKeyFrame = '',
 		cssDeclaration = '';
-		
-		if(validatePositive(animDuration)) {
-			valueKeyFrame = "@keyframe anim {\n";
-			valueKeyFrame += "	from:{width: 20%;}\n";
-			valueKeyFrame += "	50%{width: 60%;}\n";
-			valueKeyFrame += "	to:{width: 100%;}\n";
+
+		if(validateDecimalPositive(animDuration)) {
+			valueKeyFrame = "@keyframes anim {\n";
+			valueKeyFrame += "	from {width: 20%;}\n";
+			valueKeyFrame += "	50% {width: 60%;}\n";
+			valueKeyFrame += "	to {width: 100%;}\n";
 			valueKeyFrame += "}\n\n";
 			
 			valAnimation.push('	animation: anim');
-			valAnimation.push(animDuration += 'ms');
+			valAnimation.push(animDuration += 's');
 			animTFunc ? valAnimation.push(animTFunc) : '';
 			(validatePositive(animIteCount) || animIteCount == 'infinite') ? valAnimation.push(animIteCount) : '';
 			animDirection ? valAnimation.push(animDirection) : '';
-			validatePositive(animDelay) ? valAnimation.push(animDelay + 'ms') : '';
-			decAnimation = valAnimation.join(' ') + ';';
-			valRunAnimation = decAnimation;
+			validateDecimalPositive(animDelay) ? valAnimation.push(animDelay + 's') : '';
+			inlineAnimation = valAnimation.join(' ') + ';';
+			decAnimation = "div {\n" + valAnimation.join(' ') + ';\n}';
+			valRunAnimation = inlineAnimation;
 		} else {
 			valRunAnimation = '';
 		}
 		
-		cssDeclaration = valueKeyFrame + "div {\n" + decAnimation + "\n}";
+		cssDeclaration = valueKeyFrame + decAnimation;
 		
 		if( cssDeclaration != '') {
 			$('.css-animation').html(cssDeclaration);
 			$("#animation .out-css div").removeAttr("style");
-			setTimeout(function(){$("#animation .out-css div").attr("style", decAnimation)},100);
+			setTimeout(function(){$("#animation .out-css div").attr("style", inlineAnimation)},100);
 		} else {
 			$(".css-animation").html("");
 			$("#animation .out-css div").removeAttr("style");
@@ -53,18 +62,17 @@ $(function(){
 });
 
 $(function(){
-	$("#background").on("change keyup", function() {
+	$("#background").on("input", function() {
 		var backgroundColor = $("#bg-color").val(),
 		backgroundImage = $('input[name="bcg-img"]:checked').val(),
 		backgroundRepeat = $('input[name="bcg-repeat"]:checked').val(),
 		backgroundAttachment = $('input[name="bcg-attachment"]:checked').val(),
-		backgroundClip = $('input[name="bcg-clip"]:checked').val(),
 		backgroundPosition = $('#background-position').val(),
+		backgroundSize = $('input[name="bg-size"]:checked').val(),
+		backgroundClip = $('input[name="bcg-clip"]:checked').val(),
 		valueBackground = []
 		valBack = '',
 		cssDeclaration = '';
-
-		console.log(backgroundPosition);
 
 		$("#actv-bg-color").is(":checked") && validateColor(backgroundColor) ? valueBackground.push('background-color: ' + backgroundColor + ';') : '';
 		if(backgroundImage != 'noimage' && backgroundImage != undefined) {
@@ -73,6 +81,7 @@ $(function(){
 			backgroundRepeat ? valueBackground.push('background-repeat: ' + backgroundRepeat + ';') : '';
 			backgroundAttachment ? valueBackground.push('background-attachment: ' + backgroundAttachment + ';') : '';
 			if(backgroundPosition != 'No Value') valueBackground.push('background-position: ' + backgroundPosition + ';');
+			if(backgroundSize != 'none') valueBackground.push('background-size: ' + backgroundSize + ';');
 		}
 		
 		backgroundClip ? valueBackground.push('background-clip: ' + backgroundClip + ';') : '';
@@ -84,7 +93,7 @@ $(function(){
 });
 
 $(function(){
-	$("#border").on("change keyup", function() {
+	$("#border").on("input", function() {
 		var borderWidth = $("#border-width-val").val(),
 		borderColor = $("#bdcolor").val(),
 		borderStyle = $("input[name='style']:checked").val(),
@@ -107,7 +116,7 @@ $(function(){
 });
 
 $(function(){
-	$("#border-radius").on("change keyup", function() {
+	$("#border-radius").on("input", function() {
 		var cornerRndTl = $("#crtl").val(),
 		cornerRndTr = $("#crtr").val(),
 		cornerRndBr = $("#crbr").val(),
@@ -154,41 +163,46 @@ $(function(){
 });
 
 $(function(){
-	$("#box-shadow").on("change keyup", function() {
-		var bsInset = $("input[name='bscheck']").is(':checked') ? 'inset ' : '',
+	$("#box-shadow").on("input", function() {
+		var bsInset = $("input[name='bscheck']").is(':checked') ? 'inset' : '',
 		bsHor = $("#bshor").val(),
 		bsVer = $("#bsver").val(),
 		bsBlur = $("#bsblur").val(),
 		bsProp = $("#bsprop").val(),
 		bsColor = $("#bscolor").val(),
 		backgroundColor = $("#bsbackcolor").val(),
+		showBgColor = $("#actv-bg-color").is(":checked") ? true : false;
 		valuesBoxShadow = [],
 		backgroundColorDec = '',
 		boxShadowDec = '',
 		styleInline = '',
 		cssDeclaration = '';
 
-		if(validateInteger(bsHor, false) && validateInteger(bsVer, false) && validatePositive(bsBlur)){
+		if(validateInteger(bsHor, false) || validateInteger(bsVer, false) || validatePositive(bsBlur)){
 			valuesBoxShadow.push("box-shadow:");
 			bsInset ? valuesBoxShadow.push(bsInset) : '';
-			valuesBoxShadow.push(bsHor + 'px');
-			valuesBoxShadow.push(bsVer + 'px');
-			valuesBoxShadow.push(bsBlur + 'px');
-			validatePositive(bsProp) ? valuesBoxShadow.push(bsProp + 'px') : '';
+			bsHor != '0' ? valuesBoxShadow.push(bsHor + 'px') : valuesBoxShadow.push('0');
+			bsVer != '0' ? valuesBoxShadow.push(bsVer + 'px') : valuesBoxShadow.push('0');
+			bsBlur != '0' ?  valuesBoxShadow.push(bsBlur + 'px') : valuesBoxShadow.push('0');
+			validateInteger(bsProp, false) ? valuesBoxShadow.push(bsProp + 'px') : '';
 			validateColor(bsColor) ? valuesBoxShadow.push(bsColor) : '';
 			if(validateColor(backgroundColor)) backgroundColorDec = "background-color: " + backgroundColor + ';'
 			boxShadowDec = valuesBoxShadow.join(' ') + ';';
 		}
 		
 		styleInline = boxShadowDec + backgroundColorDec;
-		cssDeclaration = boxShadowDec;
+		if(showBgColor) {
+			cssDeclaration = boxShadowDec + "\n" + backgroundColorDec;
+		} else {
+			cssDeclaration = boxShadowDec;
+		}
 		
 		showResult(cssDeclaration, styleInline,'box-shadow');
 	});
 });
 
 $(function(){
-	$("#font").on("change keyup", function(){
+	$("#font").on("input", function(){
 		var fontStyle = $('input[name="font-style"]:checked').val(),
 		fontSize = $("#font-size").val(),
 		fontWeight = $('input[name="font-weight"]:checked').val(),
@@ -209,24 +223,70 @@ $(function(){
 });
 
 $(function(){
-	$("#text").on("change keyup", function(){
+	$("#outline").on("input", function() {
+		var outlineWidth = $("#outline-width-val").val(),
+		outlineColor = $("#outline-color").val(),
+		outlineStyle = $("input[name='outline-style']:checked").val(),
+		outlineOffset = $("#outline-offset-val").val(),
+		outlineValues = [],
+		offsetVal = '',
+		outlineDec = [],
+		decInline = '',
+		cssDeclaration = '';
+
+		if( validateInteger(outlineWidth, false)  && outlineStyle != '' && outlineStyle != 'none') {
+			outlineValues.push('outline:')
+			outlineValues.push(outlineWidth + 'px');
+			outlineValues.push(outlineStyle);
+			validateColor(outlineColor) ? outlineValues.push(outlineColor) : null;
+			outlineDec.push(outlineValues.join(' ') + ';');
+			if(validateInteger(outlineOffset, true)) {
+				offsetVal = 'outline-offset: ' + outlineOffset + 'px';
+				outlineDec.push(offsetVal);
+			}
+		}
+		
+		decInline = outlineDec.join('');
+		cssDeclaration = outlineDec.join("\n");
+		
+		showResult(cssDeclaration, decInline, 'outline');
+	});
+});
+
+$(function(){
+	$("#text").on("input", function(){
 		var letterSpacing = $("#txt-letter-spacing").val(),
 		wordSpacing = $("#txt-word-spacing").val(),
+		color = $("#txt-color").val();
 		lineHeight = $("#txt-line-height").val(),
 		textAlign = $('input[name="text-align"]:checked').val(),
 		textIndent = $('#txt-indent').val();
-		textDecoration = $('input[name="text-decoration"]:checked').val(),
+		textDecorationLine = $('input[name="text-decoration-line"]:checked').val(),
+		textDecorationColor = $("#tdcolor").val(),
+		textDecorationStyle = $('input[name="text-decoration-style"]:checked').val(),
+		textDecorationThickness = $("#txt-decoration-thickness").val(),
 		textTransform = $('input[name="text-transform"]:checked').val(),
-		valText=[],
+		valText = [],
+		valTextDecoration = [],
 		decInline = '',
 		ruleCss = '';
 		
 		if(validatePositive(letterSpacing)) valText.push("letter-spacing: " + letterSpacing + "px;");
 		if(validatePositive(wordSpacing)) valText.push("word-spacing: " + wordSpacing + "px;");
+		if(color) valText.push("color: " + color + ";")
 		if(validatePositive(lineHeight)) valText.push("line-height: " + lineHeight + "px;");
 		if(textAlign) valText.push("text-align: " + textAlign + ";");
 		if(validatePositive(textIndent)) valText.push("text-indent: " + textIndent + "px;");
-		if(textDecoration) valText.push("text-decoration: " + textDecoration + ";");
+
+		if(textDecorationLine != "none") {
+			valTextDecoration.push("text-decoration:");
+			valTextDecoration.push(textDecorationLine);
+			valTextDecoration.push(textDecorationColor);
+			if(textDecorationStyle != "none") valTextDecoration.push(textDecorationStyle);
+			if(validatePositive(textDecorationThickness)) valTextDecoration.push(textDecorationThickness + "px");
+			valText.push(valTextDecoration.join(' ') + ";");
+		}
+
 		if(textTransform) valText.push("text-transform: " + textTransform + ";");
 		
 		
@@ -238,7 +298,90 @@ $(function(){
 });
 
 $(function(){
-	$("#transition").on("change keyup", function(){
+	$("#text-shadow").on("input", function() {
+		var tsHor = $("#tshor").val(),
+		tsVer = $("#tsver").val(),
+		tsBlur = $("#tsblur").val(),
+		tsColor = $("#tscolor").val(),
+		txtColor = $("#txtcolor").val(),
+		tsBackgroundColor = $("#tsbackcolor").val(),
+		showBgColor = $("#actv-bg-color").is(":checked") ? true : false;
+		showTxtColor = $("#actv-txt-color").is(":checked") ? true : false;
+		valuesTextShadow = [],
+		textColorDec = '',
+		backgroundColorDec = '',
+		textShadowDec = '',
+		generalDec = [],
+		styleInline = '',
+		cssDeclaration = '';
+		
+		if(validateInteger(tsHor, false) || validateInteger(tsVer, false) || validatePositive(tsBlur)){
+			valuesTextShadow.push("text-shadow:");
+			tsHor != '0' ? valuesTextShadow.push(tsHor + 'px') : valuesTextShadow.push('0');
+			tsVer != '0' ? valuesTextShadow.push(tsVer + 'px') : valuesTextShadow.push('0');
+			tsBlur != '0' ?  valuesTextShadow.push(tsBlur + 'px') : valuesTextShadow.push('0');
+			validateColor(tsColor) ? valuesTextShadow.push(tsColor) : '';
+			textShadowDec = valuesTextShadow.join(' ') + ';';
+			generalDec.push(textShadowDec);
+			
+			if(validateColor(tsBackgroundColor)) backgroundColorDec = "background-color: " + tsBackgroundColor + ';';
+			if(showBgColor) generalDec.push(backgroundColorDec);
+			if(validateColor(txtColor)) textColorDec = "color: " + txtColor + ';';
+			if(showTxtColor) generalDec.push(textColorDec);
+		}
+		
+		styleInline = textShadowDec + backgroundColorDec + textColorDec;
+		
+		cssDeclaration = generalDec.join("\n");
+		
+		showResult(cssDeclaration, styleInline,'text-shadow');
+	});
+});
+
+$(function(){
+	$("#transform2d").on("input", function() {
+		var transformRotate = $("#transform-rotate").val(),
+		transformTranslateX = $("#transform-translate-x").val(),
+		transformTranslateY = $("#transform-translate-y").val(),
+		transformScaleX = $("#transform-scale-x").val(),
+		transformScaleY = $("#transform-scale-y").val(),
+		transformSkewX = $("#transform-skew-x").val(),
+		transformSkewY = $("#transform-skew-y").val(),
+		scaleSameVal = $("#enbl-scale-same-val").is(":checked") ? true : false;
+		transformDec = [];
+		decInline = '',
+		cssDeclaration = '';
+console.log(scaleSameVal);
+		if(transformRotate != 0) transformDec.push("rotate(" + transformRotate + "deg)");
+		
+		if(transformTranslateX != 0 || transformTranslateY != 0) {
+			transformDec.push("translate(" + transformTranslateX + "px, " + transformTranslateY + "px)");
+		}
+		
+		if(scaleSameVal) {
+			if(transformScaleX != 1){
+				transformDec.push("scale(" + transformScaleX + ")");
+			}
+		}
+		else if(transformScaleX != 1 || transformScaleY != 1) {
+			transformDec.push("scale(" + transformScaleX + ", " + transformScaleY + ")");
+		}
+
+		if(transformSkewX != 0 || transformSkewY != 0) {
+			transformDec.push("skew(" + transformSkewX + "deg, " + transformSkewY + "deg)");
+		}
+
+		if(transformDec.length > 0) {
+			decInline = "transform: " + transformDec.join(' ') + ";";
+			cssDeclaration = "transform: " + transformDec.join(" ") + ";";
+		}
+		
+		showResult(cssDeclaration, decInline, 'transform2d');
+	});
+});
+
+$(function(){
+	$("#transition").on("input", function(){
 		var tProperty = $("#transition-property").val(),
 		tDuration = $("#transition-duration").val(),
 		tTimingFunc = $('input[name="transition-timing-function"]:checked').val(),
@@ -247,25 +390,25 @@ $(function(){
 		valTransition = [],
 		cssDeclaration = '';
 		
-		if(tProperty &&	validatePositive(tDuration) && tTimingFunc) {
+		if(tProperty &&	validateDecimalPositive(tDuration) && tTimingFunc) {
 			classCssTransition = 'transition-' + tProperty;
 			valTransition.push('transition: ' + tProperty);
-			valTransition.push(tDuration + 'ms');
+			valTransition.push(tDuration + 's');
 			valTransition.push(tTimingFunc);
-			if(validatePositive(tDelay)) valTransition.push(tDelay + 'ms');
+			if(validateDecimalPositive(tDelay)) valTransition.push(tDelay + 's');
 			cssDeclaration = valTransition.join(" ") + ';';
 		}
 
 		if( cssDeclaration != '') {
-			$('.css-transitions').html(cssDeclaration);
-			$("#transition .out-transitions div").attr("style", cssDeclaration);
-			$("#transition .out-transitions div").removeAttr("class");
-			$("#transition .out-transitions div").addClass('transition-'+tProperty);
+			$('.css-transition').html(cssDeclaration);
+			$("#transition .out-transition div").attr("style", cssDeclaration);
+			$("#transition .out-transition div").removeAttr("class");
+			$("#transition .out-transition div").addClass('transition-'+tProperty);
 			
 		} else {
-			$(".css-transitions").html("");
-			$("#transition .out-transitions div").removeAttr("style");
-			$("#transition .out-transitions div").removeAttr("class");
+			$(".css-transition").html("");
+			$("#transition .out-transition div").removeAttr("style");
+			$("#transition .out-transition div").removeAttr("class");
 		}
 	});
 });
@@ -273,42 +416,34 @@ $(function(){
 $(function(){
 	$(".copy-button").click( function(){
 		var text = $(this).parent().siblings('textarea').val();
-		if(text != '') {
-			navigator.clipboard.writeText(text)
+		if(text !== '') {
+			navigator.clipboard.writeText(text);
+			$('.copy-msg').fadeIn("slow").delay(1500).fadeOut("fast");
 		}
 	});
 });
 
-function validatePositive(value) {
-	if(value % 1 === 0) {
-		if(value != 0) return true;
-	} else {
-		return false;
-	}
-}
+$(".range-default").on('input', function() {
+	var rangeValue = $(this).val();
+	$(this).parent().siblings('.prop-num-val').children('span').html(rangeValue);
+});
 
-function validateInteger(value, zero) {
-	if(value % 1 === 0 && zero === true) {
-		return true;
-	} else if(value % 1 === 0 && value != 0 && zero === false) {
-		return true;
-	} else {
-		return false;
-	}
-}
+$(".input-color").on('input', function() {
+	var colorValue = $(this).val();
+	$(this).parent().siblings('.box-code-color').children('.input-code-color').val(colorValue);
+});
 
-function validateColor(color) {
-	var exp = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;	
-	return exp.test(color);
-}
+$(".input-code-color").on('input', function() {
+	var colorValue = $(this).val();
+	$(this).parent().siblings('.box-color').children('.input-color').val(colorValue);
+});
 
-function showResult(cssDec, cssInline, sectionId) {
-	if( cssDec != '') {
-		$(".css-" + sectionId).html(cssDec);
-		$("#" + sectionId + " .style-" + sectionId).attr("style", cssInline);
-	} else {
-		$(".css-" + sectionId).html("");
-		$("#" + sectionId + " .style-" + sectionId).removeAttr("style");
+$(".menu-icon-bars").click(function() {
+	$(".menu-nav-bar").toggleClass('open-menu-clicked');
+});
+
+$(".menu-close").click(function() {
+	if($(".menu-nav-bar").hasClass('open-menu-clicked')) {
+		$(".menu-nav-bar").removeClass('open-menu-clicked')
 	}
-		
-}
+});
